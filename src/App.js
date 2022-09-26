@@ -15,7 +15,7 @@ export default class App extends Component {
 		this.state = {
 			menus: [],
 			categoryYangDipilih: "Makanan",
-			keranjang: [],
+			keranjangs: [],
 		};
 	}
 
@@ -39,6 +39,20 @@ export default class App extends Component {
 			.catch((error) => {
 				console.log(error);
 			});
+	}
+
+	componentDidUpdate(prevState) {
+		if (this.state.keranjangs !== prevState.keranjangs) {
+			axios
+				.get(API_URL + "keranjangs")
+				.then((res) => {
+					const keranjangs = res.data;
+					this.setState({ keranjangs });
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
 	}
 
 	changeCategory = (value) => {

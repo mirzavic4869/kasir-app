@@ -11,33 +11,32 @@ export default class Hasil extends Component {
 					<strong>Hasil</strong>
 				</h4>
 				<hr />
-				{keranjangs.length !== 0 && (
-					<ListGroup variant="flush">
-						{keranjangs &&
-							keranjangs.map((menuKeranjang) => (
-								<ListGroup.Item>
-									<Row>
-										<Col xs={2}>
-											<h5>
-												<Badge pill variant="success">
-													{menuKeranjang.jumlah}
-												</Badge>
-											</h5>
-										</Col>
-										<Col>
-											<h5>{menuKeranjang.product.nama}</h5>
-											<p>Rp {numberWithCommas(menuKeranjang.product.harga)} </p>
-										</Col>
-										<Col>
-											<strong className="float-end">
-												<p>Rp {numberWithCommas(menuKeranjang.total_harga)} </p>
-											</strong>
-										</Col>
-									</Row>
-								</ListGroup.Item>
-							))}
-					</ListGroup>
-				)}
+
+				<ListGroup variant="flush">
+					{keranjangs &&
+						keranjangs.map((menuKeranjang) => (
+							<ListGroup.Item key={menuKeranjang.id}>
+								<Row>
+									<Col xs={2}>
+										<h5>
+											<Badge pill variant="success">
+												{menuKeranjang.jumlah}
+											</Badge>
+										</h5>
+									</Col>
+									<Col>
+										<h5>{menuKeranjang.product.nama}</h5>
+										<p>Rp {numberWithCommas(menuKeranjang.product.harga)} </p>
+									</Col>
+									<Col>
+										<strong className="float-end">
+											<p>Rp {numberWithCommas(menuKeranjang.total_harga)} </p>
+										</strong>
+									</Col>
+								</Row>
+							</ListGroup.Item>
+						))}
+				</ListGroup>
 			</Col>
 		);
 	}
