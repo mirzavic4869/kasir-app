@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../index.css";
 import { Col } from "react-bootstrap";
 import axios from "axios";
 import { API_URL } from "../utils/constants";
@@ -7,9 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils, faCoffee, faCheese } from "@fortawesome/free-solid-svg-icons";
 
 const Icon = ({ nama }) => {
-	if (nama === "Makanan") return <FontAwesomeIcon icon={faUtensils} className="mr-2" />;
-	if (nama === "Minuman") return <FontAwesomeIcon icon={faCoffee} className="mr-2" />;
-	if (nama === "Cemilan") return <FontAwesomeIcon icon={faCheese} className="mr-2" />;
+	if (nama === "Makanan") return <FontAwesomeIcon icon={faUtensils} className="me-2" />;
+	if (nama === "Minuman") return <FontAwesomeIcon icon={faCoffee} className="me-2" />;
+	if (nama === "Cemilan") return <FontAwesomeIcon icon={faCheese} className="me-2" />;
 };
 
 export default class ListCategories extends Component {
@@ -45,8 +46,8 @@ export default class ListCategories extends Component {
 					<ListGroup>
 						{categories &&
 							categories.map((category) => (
-								<ListGroup.Item key={category.id} onClick={() => changeCategory(category.nama)}>
-									<h6 className="me-2">
+								<ListGroup.Item key={category.id} onClick={() => changeCategory(category.nama)} className={categoryYangDipilih === category.nama && "category-aktif"} style={{ cursor: "pointer" }}>
+									<h6>
 										<Icon nama={category.nama} />
 										{category.nama}
 									</h6>
