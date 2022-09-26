@@ -8,3 +8,8 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.category-aktif {
+	background-color: darkorange;
+	color: white;
+}
